@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chess-protocol"
+version = "0.1.0"
+description = "CMTP: a client-server protocol for multiplayer chess"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+gui = ["pygame-ce"]
+dev = ["pytest", "pytest-asyncio"]
+report = ["matplotlib"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+markers = ["slow: deep perft runs; skipped unless pytest is given --runslow"]
